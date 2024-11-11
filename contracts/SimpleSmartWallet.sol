@@ -59,8 +59,11 @@ contract SimpleWalet{
         emit Transfer(msg.sender, _to, _amount);
     }
 
-    function getBalance() public view returns(uint256){
+    function getBalanceOfContract() public view returns(uint256){
         return address(this).balance;
     }
     
+    function getBalanceOfMyWallet(address _myWallet)public view returns(uint256){
+        return balanceOfAccounts[_myWallet];
+    }
 }

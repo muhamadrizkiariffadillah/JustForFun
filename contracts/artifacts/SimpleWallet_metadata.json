@@ -12,17 +12,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "_InsufficientBalanceSimpleWalet",
+				"name": "_InsufficientBalance",
 				"type": "error"
 			},
 			{
 				"inputs": [],
-				"name": "_NotAutorizedSimpleWalet",
-				"type": "error"
-			},
-			{
-				"inputs": [],
-				"name": "_NotOwnerSimpleWalet",
+				"name": "_NotAuthorizedUser",
 				"type": "error"
 			},
 			{
@@ -35,20 +30,7 @@
 						"type": "address"
 					}
 				],
-				"name": "AuthorizedUserRemove",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					}
-				],
-				"name": "AuthorizedUsersAdded",
+				"name": "AuthorizedUserAdded",
 				"type": "event"
 			},
 			{
@@ -118,19 +100,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_user",
-						"type": "address"
-					}
-				],
-				"name": "addAuthorizedUser",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -154,7 +123,7 @@
 						"type": "address"
 					}
 				],
-				"name": "balanceOfAccounts",
+				"name": "balanceOfUsers",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -170,38 +139,6 @@
 				"name": "deposit",
 				"outputs": [],
 				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getBalanceOfContract",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_myWallet",
-						"type": "address"
-					}
-				],
-				"name": "getBalanceOfMyWallet",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -262,7 +199,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/SimpleSmartWallet.sol": "SimpleWalet"
+			"contracts/SimpleSmartWalletSave.sol": "SimpleWallet"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -276,12 +213,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/SimpleSmartWallet.sol": {
-			"keccak256": "0xf54850a347114962cee55d387a3ea3598c13fbc293112e3a10d7ec2c5cbdbdb7",
+		"contracts/SimpleSmartWalletSave.sol": {
+			"keccak256": "0x387b84f0340319cd72adfe09bdc8b61b286b4963b7ca2b1b7c25b73ddf19ef27",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1bd1451a3e2f8f68105b671b5280fb903371c387e718fe995e713251d9343163",
-				"dweb:/ipfs/QmZ1jSDiYkBPWTas3h21uWGZRQ5sxcJ8sd7mX13M1gjHyE"
+				"bzz-raw://49463babf5a0c170e994110392285cadd8b632e6dcba5abc29afad988f5ee42a",
+				"dweb:/ipfs/QmUMEbZjX7RzfrAcFfHmTEjAbQsY92GRyy8dsaXF8DqKsG"
 			]
 		}
 	},
