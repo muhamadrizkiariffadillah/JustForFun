@@ -31,7 +31,6 @@ contract PrivateBank{
         uint256 createdAt;
     }
 
-    // State variables
     address immutable owner;
     uint256 immutable contract_fee;
 
@@ -62,7 +61,7 @@ contract PrivateBank{
     }
     
     modifier SufficientBalance(uint256 _amount){
-        require(_amount < user[msg.sender].balance,"insufficient balance");
+        require(_amount <= user[msg.sender].balance,"insufficient balance");
         _;
     }
 
@@ -98,16 +97,18 @@ contract PrivateBank{
     SufficientBalance(_amount)
     OnlyTruePin(_pin)
     {
-        uint256 _amountAfterfee = _amount - contract_fee;
-
-        user[msg.sender].balance -= _amountAfterfee;
+        if (msg.sender != owner){
+            uint256 _amountAfterfee = _amount - contract_fee;
+            user[msg.sender].balance -= _amount;
+            user[owner].balance += contract_fee;
+            (bool successUser,) = msg.sender.call{value: _amountAfterfee}("");
+            require(successUser,"transfer failed");
+        } else {
+            user[msg.sender].balance -= _amount;
+            (bool successUser,) = msg.sender.call{value: _amount}("");
+            require(successUser,"transfer failed");
+        }
         
-        user[owner].balance += contract_fee;
-        
-        (bool successUser,) = msg.sender.call{value: _amountAfterfee}("");
-        require(successUser,"transfer failed");
-
-
         emit Withdraw(msg.sender,_amount,block.timestamp);
     }
     
@@ -125,6 +126,13 @@ contract PrivateBank{
         _to.transfer(_amountAfterfee);
 
         emit Transfer(msg.sender,_to,_amountAfterfee,block.timestamp);
+    }
+
+    function changeMyPin(uint256 _oldPin,uint256 _newPin) external 
+    OnlyAutorizedUser 
+    OnlyTruePin(_oldPin)
+    {
+        user[msg.sender].pin = _newPin;
     }
 
     function getMyBalance() public view returns(uint256){

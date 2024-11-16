@@ -129,6 +129,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_oldPin",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newPin",
+						"type": "uint256"
+					}
+				],
+				"name": "changeMyPin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "deposit",
 				"outputs": [],
@@ -231,11 +249,11 @@
 	},
 	"sources": {
 		"contracts/PrivateBank.sol": {
-			"keccak256": "0x291bafb10f4288574cced1870a68f21778d621e69947ce957606bae9bc4c5226",
+			"keccak256": "0x728587795a2d163bb0f17580e1562cf874cc26008a0886c916c1f9abdaad886a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://58c77172f75cc464a16b0f4e5e215e15a3eadb2871ed676d2389189d8490a2d0",
-				"dweb:/ipfs/QmPEdNM7Wz2n7tqFXZKcUCQyXcA91RfAXBMjqJPDhwC8o9"
+				"bzz-raw://1e4c2aec3bd7c2d86614e1315656a18cf921d034bd07de1d200ae2eefae1208a",
+				"dweb:/ipfs/QmTVijCnmZDuEXg3zGp8zNjgr6vbFwoDbr4XqGjpCCCUFZ"
 			]
 		}
 	},
